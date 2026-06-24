@@ -90,7 +90,10 @@ def main() -> None:
     models["random_forest"] = rf_grid.best_estimator_
     print("RandomForest best params:", rf_grid.best_params_)
 
-    lgbm = LGBMRegressor(random_state=RANDOM_STATE, verbose=-1)
+    # deterministic+force_row_wise: LightGBM с многопоточностью иначе не строго воспроизводим
+    # даже при фиксированном random_state (порядок суммирования при построении гистограмм
+    # зависит от потока) — это меняло вывод по H4 между перезапусками.
+    lgbm = LGBMRegressor(random_state=RANDOM_STATE, verbose=-1, deterministic=True, force_row_wise=True)
     lgbm_grid = GridSearchCV(
         lgbm,
         {
