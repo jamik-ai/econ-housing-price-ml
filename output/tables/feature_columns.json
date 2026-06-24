@@ -1,0 +1,41 @@
+{
+  "target_col": "log_price_rub",
+  "numeric_features": [
+    "rooms",
+    "area_sqm",
+    "living_area_sqm",
+    "kitchen_area_sqm",
+    "floor",
+    "floors_total",
+    "metro_time_min",
+    "build_year",
+    "prepay_months",
+    "rooms_was_missing",
+    "living_area_sqm_missing",
+    "kitchen_area_sqm_missing",
+    "build_year_missing",
+    "prepay_months_missing",
+    "is_agent"
+  ],
+  "categorical_features": [
+    "repair_type",
+    "house_material",
+    "district_grouped",
+    "metro_grouped"
+  ],
+  "non_feature_cols": [
+    "offer_id",
+    "added",
+    "price_rub",
+    "price_per_sqm",
+    "price_segment",
+    "district",
+    "metro"
+  ],
+  "price_segment_distribution": {
+    "comfort": 5797,
+    "econom": 5792,
+    "premium": 5789,
+    "business": 5782
+  }
+}
